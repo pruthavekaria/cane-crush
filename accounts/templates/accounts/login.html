@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-box">
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <i class="fas fa-user "></i>
+            {{ form.username.errors }}
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            {{ form.password.errors }}
+            {{ form.password }}
+        </div>
+        <button type="submit" class="register-btn">Login</button>
+    </form>
+    <p class="member-text">Doesn't have an account yet? <a href="{% url 'register'%}">Register</a></p>
+    <p class="member-text"><a href="{% url 'forget_password'%}">Forgot Password?</a></p>
+</div>
+<!-- <div class="image-box">
+    <img src="{% static 'images/collect_images/why_choose_us.jpg' %}" alt="Desk Image">
+</div> -->
+{% endblock %}
