@@ -2,11 +2,13 @@
 {% load static %}
 
 {% block content %}
+<!-- <img src="{% static 'images/some-white-sugar-spoon-side-view.jpg' %}" style="position: relative; mask-repeat: no-repeat;" alt="My Image"> -->
+
 <!-- Start Header/Navigation -->
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">Canecrush<span>.</span></a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo/CaneCrush White and Yellow Logo.svg'%}" style="width: 200px; height: 40px;"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                 aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,15 +21,26 @@
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li><a class="nav-link" href="{% url 'products' %}">Shop</a></li>
-                <li><a class="nav-link" href="about.html">About us</a></li>
+                <li><a class="nav-link" href="{% url 'about'%}">About us</a></li>
                 <li><a class="nav-link" href="services.html">Services</a></li>
                 <li><a class="nav-link" href="blog.html">Blog</a></li>
                 <li><a class="nav-link" href="{% url 'contact_us' %}">Contact us</a></li>
             </ul>
 
             <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-                <li><a class="nav-link" href="{% url 'login'%}"><img src='{% static "images/user.svg" %}'></a></li>
-                <li><a class="nav-link" href="{% url 'order' %}"><img src='{% static "images/cart.svg" %}'></a></li>
+                <!-- <li><a class="nav-link" href="{% url 'login'%}"><img src='{% static "images/user.svg" %}'></a></li> -->
+                <li>
+                    {% if request.user.is_authenticated %}
+                      <a class="nav-link" href="{% url 'profile' %}">
+                        <img src="{% static 'images/user.svg' %}" alt="Profile">
+                      </a>
+                    {% else %}
+                      <a class="nav-link" href="{% url 'login' %}">
+                        <img src="{% static 'images/user.svg' %}" alt="Login">
+                      </a>
+                    {% endif %}
+                  </li>
+                <li><a class="nav-link" href="{% url 'cart' %}"><img src='{% static "images/cart.svg" %}'></a></li>
             </ul>
         </div>
     </div>
@@ -50,7 +63,7 @@
             </div>
             <div class="col-lg-7">
                 <div class="hero-img-wrap">
-                    <img src='{% static "images/couch.png" %}' class="img-fluid">
+                    <!-- <img src='{% static "images/couch.png" %}' class="img-fluid"> -->
                 </div>
             </div>
         </div>
@@ -210,7 +223,7 @@
 <!-- End We Help Section -->
 
 <!-- Start Popular Product -->
-<div class="popular-product">
+<!-- <div class="popular-product">
     <div class="container">
         <div class="row">
 
@@ -255,7 +268,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 <!-- End Popular Product -->
 
 <!-- Start Testimonial Slider -->
@@ -289,7 +302,7 @@
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src='{% static "images/person-1.png" %}' alt="Maria Jones" class="img-fluid">
+                                                <img src='{% static "images/janavi_dudhat.jpeg" %}' alt="Maria Jones" class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Janvi Dudhat</h3>
                                             <span class="position d-block mb-3">CEO, Co-Founder, A P Accountant</span>
@@ -312,9 +325,9 @@
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src='{% static "images/person-1.png" %}' alt="Maria Jones" class="img-fluid">
+                                                <img src='{% static "images/jay_gabani.jpg" %}' alt="Maria Jones" class="img-fluid">
                                             </div>
-                                            <h3 class="font-weight-bold">Jay</h3>
+                                            <h3 class="font-weight-bold">Jay Gabani</h3>
                                             <span class="position d-block mb-3">Athlete</span>
                                         </div>
                                     </div>
@@ -335,7 +348,7 @@
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src='{% static "images/person-1.png" %}' alt="Maria Jones" class="img-fluid">
+                                                <img src='{% static "images/julee_hirapara.jpg" %}' alt="Maria Jones" class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Julee Hirapara</h3>
                                             <span class="position d-block mb-3">Baker, Co-Founder, Home Baker's</span>
@@ -358,7 +371,7 @@
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src='{% static "images/person-1.png" %}' alt="Maria Jones" class="img-fluid">
+                                                <img src='{% static "images/nisit_patel.jpg" %}' alt="Maria Jones" class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Nisit Patel</h3>
                                             <span class="position d-block mb-3">Software Engineer</span>
@@ -369,10 +382,7 @@
                             </div>
                         </div>
                         <!-- END item -->
-
-                          <!-- END item -->
-
-                          <div class="item">
+                        <div class="item">
                             <div class="row justify-content-center">
                                 <div class="col-lg-8 mx-auto">
 
@@ -383,7 +393,7 @@
 
                                         <div class="author-info">
                                             <div class="author-pic">
-                                                <img src='{% static "images/person-1.png" %}' alt="Maria Jones" class="img-fluid">
+                                                <img src='{% static "images/prutha_vekariya.jpg" %}' alt="Maria Jones" class="img-fluid">
                                             </div>
                                             <h3 class="font-weight-bold">Prutha Vekariya</h3>
                                             <span class="position d-block mb-3">Fashion Designer</span>

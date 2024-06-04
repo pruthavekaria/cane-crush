@@ -1,6 +1,6 @@
 # admin.py
 from django.contrib import admin
-from .models import Category, Product, Customer, Order, OrderItem, PackSize
+from .models import Category, Product, Order, OrderItem, PackSize, ContactMessage
 
 
 @admin.register(Category)
@@ -28,9 +28,9 @@ class PackSizeAdmin(admin.ModelAdmin):
     list_display = ('size',)
 
 
-@admin.register(Customer)
-class CustomerAdmin(admin.ModelAdmin):
-    list_display = ('user', 'phone', 'address')
+# @admin.register(Customer)
+# class CustomerAdmin(admin.ModelAdmin):
+#     list_display = ('user', 'phone', 'address')
 
 
 @admin.register(Order)

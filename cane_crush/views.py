@@ -13,6 +13,8 @@ from django.conf import settings
 def home(request):
     return render(request, 'index.html')
 
+def about(request):
+    return render(request, 'about.html')
 
 def products(request):
     products = Product.objects.all()
@@ -44,6 +46,7 @@ def product_view(request, slug):
         'pack_sizes': pack_sizes,
         'ordered_pack_sizes': ordered_pack_sizes
     }
+    print("context :-", context)
     return render(request, 'product-view.html', context)
 
 

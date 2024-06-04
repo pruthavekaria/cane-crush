@@ -30,7 +30,6 @@
 {% block content %}
 {% endblock %}   
 
-
 <!-- Start Footer Section -->
 <footer class="footer-section">
     <div class="container relative">
@@ -42,9 +41,10 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="subscription-form">
-                    <h3 class="d-flex align-items-center"><span class="me-1"><img src='{% static "images/envelope-outline.svg" %}'
-                                                                                  alt="Image"
-                                                                                  class="img-fluid"></span><span>Subscribe to Newsletter</span>
+                    <h3 class="d-flex align-items-center"><span class="me-1"><img
+                            src='{% static "images/envelope-outline.svg" %}'
+                            alt="Image"
+                            class="img-fluid"></span><span>Subscribe to Newsletter</span>
                     </h3>
 
                     <form action="#" class="row g-3">
@@ -67,7 +67,7 @@
 
         <div class="row g-5 mb-5">
             <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo"><img src="{% static 'images/logo/CaneCrush_Logo (2).png'%}" style="height: 150px; width: 150px; margin-bottom: -90px;"></a></div>
+                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
                 <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
                     malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
                     Pellentesque habitant</p>
@@ -148,6 +148,44 @@
 <script src='{% static "js/bootstrap.bundle.min.js" %}'></script>
 <script src='{% static "js/tiny-slider.js" %}'></script>
 <script src='{% static "js/custom.js" %}'></script>
-</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
 
+<script>
+    // Event listeners for "Show more" and "Show less"
+    document.querySelector('.show-more').addEventListener('click', function () {
+        document.querySelector('.full-description').style.display = 'inline';
+        document.querySelector('.short-description').style.display = 'none';
+        document.querySelector('.show-more').style.display = 'none';
+        document.querySelector('.show-less').style.display = 'inline';
+    });
+
+    document.querySelector('.show-less').addEventListener('click', function () {
+        document.querySelector('.full-description').style.display = 'none';
+        document.querySelector('.short-description').style.display = 'inline';
+        document.querySelector('.show-more').style.display = 'inline';
+        document.querySelector('.show-less').style.display = 'none';
+    });
+
+    document.querySelectorAll('.packsize').forEach(function(element) {
+        element.addEventListener('click', function() {
+            // Remove 'active' class from all packsize elements
+            document.querySelectorAll('.packsize').forEach(function(el) {
+                el.classList.remove('active');
+            });
+            // Add 'active' class to the clicked element
+            element.classList.add('active');
+        });
+    });
+    function updateSelectedPackSize(packSize) {
+        document.getElementById('selected-pack-size').value = packSize;
+        console.log(packSize)
+    }
+    function updateSelectedPackSize(packSize) {
+        document.getElementById('selected-pack-size').value = packSize;
+    }
+
+</script>
+</body>
 </html>
