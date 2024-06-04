@@ -42,15 +42,17 @@ class ProfileView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["user"] = self.request.user
+        print("User authenticated:", self.request.user.is_authenticated)
+        print("USERNAME :- ", self.request.user)
         return context
 
 
 class UserLogout(LogoutView):
     template_name = "accounts/profile.html"
-
-    def get(self, request, args, *kwargs):
-        response = super().get(request, args, *kwargs)
-        return redirect("login")
+    next_page = reverse_lazy('home')
+    # def get(self, request, args, *kwargs):
+    #     response = super().get(request, args, *kwargs)
+    #     return redirect("/")
 
 
 User = get_user_model()
