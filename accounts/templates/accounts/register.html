@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-box">
+    <h2>Sign up</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <i class="fas fa-user "></i>
+            {{ form.username.errors }}
+            {{ form.username }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-envelope "></i>
+            {{ form.email.errors }}
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-phone "></i>
+            {{ form.phone_number.errors }}
+            {{ form.phone_number }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-address-book "></i>
+            {{ form.address.errors }}
+            {{ form.address }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            {{ form.password1.errors }}
+            {{ form.password1 }}
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            {{ form.password2.errors }}
+            {{ form.password2 }}
+        </div>
+        <button type="submit" class="register-btn">Register</button>
+    </form>
+    <p class="member-text">I am already a member <a href="{% url 'login'%}">Login</a></p>
+</div>
+<!-- <div class="image-box-register">
+    <img src="{% static 'accounts/images/register.gif' %}" alt="Desk Image">
+    <p class="member-text">I am already a member <a href="{% url 'login'%}">Login</a></p>
+</div> -->
+{% endblock %}
+

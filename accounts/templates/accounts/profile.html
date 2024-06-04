@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="form-box">
+    <h2>Profile</h2>
+    <p>Welcome, {{ user.username }}!</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Phone Number: {{ user.phone_number }}</p>
+    <p>Address: {{ user.address }}</p>
+    <p class="member-text"><a href="{% url 'change_password' %}">Change password</a></p>
+    <p class="member-text"><a href="{% url 'logout' %}">Logout</a></p>
+
+</div>
+<!-- <div class="image-box">
+    <img src="{% static 'accounts/images/profile.gif'%}" alt="Desk Image">
+</div> -->
+{% endblock %}
+
+

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+body {
+    font-family: "Ubuntu", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    max-width: 450px;
+    background-image: url("static/accounts/images/why_choose_us.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: #cccccc; */
+    background-color: #f7f7f7;
+    box-shadow: 2px 4px 8px rgba(0.1, 0.1, 0.4, 0.4);
+    border-radius: 10px;
+}
+
+.form-box {
+    font-family: "Ubuntu", sans-serif;
+    flex: 1;
+    padding: 15px 15px 15px 15px;
+}
+
+.form-box h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #775e41;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color:  #333;
+    font-size: 10px; /* Adjust the size as needed */
+}
+
+.form-group input {
+    font-family: "Ubuntu", sans-serif;
+    width: 100%;
+    padding: 10px 10px 10px 35px; /* Padding for icon space */
+    border: none;
+    border-bottom: 1px solid #ccc; /* Underline */
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: transparent; /* Transparent background */
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-bottom-color: #007bff; /* Blue underline on focus */
+    outline: none;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form-group input::placeholder {
+    color: #999;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+.form-group label {
+    display: inline-block;
+    color: #333;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8F7251;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.register-btn:hover {
+    background-color: #8F7251;
+}
+
+.member-text {
+    margin-top: 20px;
+    color: #333;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.member-text a {
+    color: #007bff;
+    text-decoration: none;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.member-text a:hover {
+    text-decoration: underline;
+}
+
+.image-box-register {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30vh; 
+    padding-bottom: 20px; 
+}
+.image-box-register img {
+    max-width: 150%;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.image-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px; 
+}
+.image-box img {
+    max-width: 150%;
+    height: auto;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
