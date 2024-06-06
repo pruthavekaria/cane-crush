@@ -6,7 +6,7 @@
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar" >
 
     <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="{% static 'images/logo/CaneCrush White and Yellow Logo.svg'%}" style="width: 200px; height: 40px;"></a>
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'images/logo/CaneCrush White and Yellow Logo.svg'%}" style="width: 200px; height: 40px;"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni"
                 aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,8 +20,7 @@
                 </li>
                 <li class="active"><a class="nav-link" href="{% url 'products'%}">Shop</a></li>
                 <li><a class="nav-link" href="{% url 'about'%}">About us</a></li>
-                <li><a class="nav-link" href="services.html">Services</a></li>
-                <li><a class="nav-link" href="blog.html">Blog</a></li>
+                <li><a class="nav-link" href="{% url 'blog'%}">Blog</a></li>
                 <li><a class="nav-link" href="{% url 'contact_us' %}">Contact us</a></li>
             </ul>
 
@@ -44,25 +43,6 @@
 
 </nav>
 <!-- End Header/Navigation -->
-
-<!-- Start Hero Section -->
-<div class="hero">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-5">
-                <div class="intro-excerpt">
-                    <h1>Our Products</h1>
-                </div>
-            </div>
-            <div class="col-lg-7">
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Hero Section -->
-
-
 <div class="untree_co-section product-section before-footer-section">
     <div class="container">
         <div class="row">
@@ -70,7 +50,7 @@
             {% for product in products %}
             <div class="col-12 col-md-4 col-lg-3 mb-5">
                 <a class="product-item" href="{% url 'product' product.slug %}">
-                    <img src="{{ product.main_image.url }}" class="img-fluid product-thumbnail">
+                    <img src="{{ product.main_image.url }}" class="img-fluid product-thumbnail img-shop">
                     <h3 class="product-title">{{product.name}}</h3>
                     <span class="icon-cross"><img src='{% static "images/cross.svg" %}' class="img-fluid"></span>
                 </a>

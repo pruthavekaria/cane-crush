@@ -6,7 +6,7 @@
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="index.html"><img src="{% static 'images/logo/CaneCrush White and Yellow Logo.svg'%}" style="width: 200px; height: 40px;"></a>
+				<a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'images/logo/CaneCrush White and Yellow Logo.svg'%}" style="width: 200px; height: 40px;"></a>
 
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -18,9 +18,8 @@
 							<a class="nav-link" href="{% url 'home'%}">Home</a>
 						</li>
 						<li><a class="nav-link" href="{% url 'products' %}">Shop</a></li>
-						<li class="active"><a class="nav-link" href="about.html">About us</a></li>
-						<li><a class="nav-link" href="services.html">Services</a></li>
-						<li><a class="nav-link" href="blog.html">Blog</a></li>
+						<li class="active"><a class="nav-link" href="{% url 'about'%}">About us</a></li>
+						<li><a class="nav-link" href="{% url 'blog'%}">Blog</a></li>
 						<li><a class="nav-link" href="{% url 'contact_us' %}">Contact us</a></li>
 					</ul>
 
@@ -46,20 +45,23 @@
 
 		<!-- Start Hero Section -->
 			<div class="hero">
+                <img src="{% static 'images/collect_images/about-desktop.png' %}" class="hero-image">
+                <!-- <img src="{% static 'images/Untitled design.jpg'%}" class="img-fluid"> -->
 				<div class="container">
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
 								<h1>About Us</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p class="mb-4">Welcome to CaneCrush, your trusted source for organic jaggery and natural sugar. Our mission is to bring you the purest, healthiest sweeteners, crafted through sustainable practices and traditional methods. From the lush sugarcane fields to your table, we ensure every step of our process maintains the highest standards of quality and care. Join us on a journey towards a healthier lifestyle with the natural sweetness of CaneCrush.
+                                </p>
 								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
-						<div class="col-lg-7">
+						<!-- <div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="{% static 'images/couch.png'%}" class="img-fluid">
+								<img src="{% static 'images/Untitled_design__3_-removebg-preview.png'%}" class="img-fluid bottom-img">
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -67,67 +69,7 @@
 
 		
 
-<!-- Start Why Choose Us Section -->
-<div class="why-choose-section">
-    <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-lg-6">
-                <h2 class="section-title">Why Choose Us</h2>
-                <div class="row my-5">
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src='{% static "images/icons/icons8-natural-food-50.png" %}' alt="Image" class="imf-fluid">
-                            </div>
-                            <!-- <h3>Fast &amp; Free Shipping</h3> -->
-                            <h3>Natural and Unprocessed</h3>
-                            <p>Our jaggery sugar is crafted using traditional methods, ensuring that it retains its natural goodness and rich flavor.</p>
-                        </div>
-                    </div>
 
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src='{% static "images/icons/icons8-hydroponics-50.png" %}' alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Rich in Nutrients</h3>
-                            <p>Packed with essential minerals like iron, magnesium, and potassium, jaggery sugar offers health benefits that refined sugar simply can't match.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src='{% static "images/icons/icons8-energy-50.png" %}' alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Boosts Energy</h3>
-                            <p>A natural source of carbohydrates, jaggery provides a quick and lasting energy boost, perfect for your daily needs.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-6">
-                        <div class="feature">
-                            <div class="icon">
-                                <img src='{% static "images/icons/icons8-gentle-on-stomach-50.png" %}' alt="Image" class="imf-fluid">
-                            </div>
-                            <h3>Supports Digestion</h3>
-                            <p>Known for its digestive properties, jaggery can help cleanse your system and aid in smoother digestion.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-lg-5">
-                <div class="img-wrap">
-                    <img src='{% static "images/collect_images/why_choose_us.jpg" %}' alt="Image" class="img-fluid">
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-<!-- End Why Choose Us Section -->
 		<!-- Start Team Section -->
 		<div class="untree_co-section">
 			<div class="container">
@@ -139,206 +81,33 @@
 				</div>
 
 				<div class="row">
-
 					<!-- Start Column 1 -->
-					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
+					<div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
 						<img src="{% static 'images/person_1.jpg'%}" class="img-fluid mb-5">
-						<h3 clas><a href="#"><span class="">Lawson</span> Arnold</a></h3>
-            <span class="d-block position mb-4">CEO, Founder, Atty.</span>
-            <p>Separated they live in.
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
+						<h3 clas><span class="">Mitanshu </span> Ajudiya</h3>
+            <span class="d-block position mb-4">CFO, Co-Founder , Canecrush.</span>
+            <p>Mitanshu Ajudiya, CFO and Co-Founder of Canecrush, drives financial strategy and innovation. His leadership fosters growth and sustainability in the company's operations and market presence.</p>
 					</div> 
 					<!-- End Column 1 -->
-
 					<!-- Start Column 2 -->
-					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
+					<div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
 						<img src="{% static 'images/person_2.jpg'%}" class="img-fluid mb-5">
 
-						<h3 clas><a href="#"><span class="">Jeremy</span> Walker</a></h3>
-            <span class="d-block position mb-4">CEO, Founder, Atty.</span>
-            <p>Separated they live in.
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
-
+						<h3 clas><span class="">Ronak </span> Rayani</h3>
+            <span class="d-block position mb-4">CEO, Co-Founder , Canecrush.</span>
+            <p>Ronak Rayani leads CaneCrush with a passion for organic products and a commitment to delivering exceptional quality and health benefits to our customers.</p>
 					</div> 
 					<!-- End Column 2 -->
-
 					<!-- Start Column 3 -->
-					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
+					<div class="col-12 col-md-6 col-lg-4 mb-5 mb-md-0">
 						<img src="{% static 'images/person_3.jpg'%}" class="img-fluid mb-5">
-						<h3 clas><a href="#"><span class="">Patrik</span> White</a></h3>
-            <span class="d-block position mb-4">CEO, Founder, Atty.</span>
-            <p>Separated they live in.
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
+						<h3 clas><span class="">Akshay</span> Bhanderi</h3>
+            <span class="d-block position mb-4">CTO, Co-Founder , Canecrush.</span>
+            <p>Akshay Bhanderi drives technological innovation at CaneCrush, ensuring seamless integration of modern techniques to produce the finest organic jaggery and natural sugar.</p>
 					</div> 
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-6 col-lg-3 mb-5 mb-md-0">
-						<img src="{% static 'images/person_4.jpg'%}" class="img-fluid mb-5">
-
-						<h3 clas><a href="#"><span class="">Kathryn</span> Ryan</a></h3>
-            <span class="d-block position mb-4">CEO, Founder, Atty.</span>
-            <p>Separated they live in.
-            Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p class="mb-0"><a href="#" class="more dark">Learn More <span class="icon-arrow_forward"></span></a></p>
-
-          
-					</div> 
-					<!-- End Column 4 -->
-
-					
-
 				</div>
 			</div>
 		</div>
 		<!-- End Team Section -->
-
-		
-
-	<!-- Start Testimonial Slider -->
-<div class="testimonial-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7 mx-auto text-center">
-                <h2 class="section-title">Testimonials</h2>
-            </div>
-        </div>
-
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="testimonial-slider-wrap text-center">
-
-                    <div id="testimonial-nav">
-                        <span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-                        <span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-                    </div>
-
-                    <div class="testimonial-slider">
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;I have been using CaneCrush organic jaggery sugar for over a year now, and I couldn't be happier with the quality. The rich, natural sweetness is perfect for my morning tea and baking needs. Knowing it's packed with nutrients and free from chemicals makes me feel great about using it for my family. Plus, the eco-friendly packaging aligns with our commitment to sustainability. Highly recommend!&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src='{% static "images/janavi_dudhat.jpeg" %}' alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Janvi Dudhat</h3>
-                                            <span class="position d-block mb-3">CEO, Co-Founder, A P Accountant</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;CaneCrush's jaggery is a game-changer. I switched from refined sugar to their organic jaggery, and the difference is incredible. Not only does it taste amazing, but it also helps with my digestion and keeps my energy levels steady throughout the day. The detailed attention to traditional methods and natural processes really shines through in the final product. I can't imagine going back to regular sugar.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src='{% static "images/jay_gabani.jpg" %}' alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Jay Gabani</h3>
-                                            <span class="position d-block mb-3">Athlete</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;As someone who loves to bake, finding a healthier sugar alternative was crucial for me. CaneCrush organic jaggery sugar has become a staple in my pantry. It adds a unique depth of flavor to my cookies and cakes that my family loves. The fact that it's nutrient-rich and eco-friendly makes it even better. I appreciate the long shelf life and the effort put into sustainable packaging.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src='{% static "images/julee_hirapara.jpg" %}' alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Julee Hirapara</h3>
-                                            <span class="position d-block mb-3">Baker, Co-Founder, Home Baker's</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;I recently discovered CaneCrush and decided to try their organic jaggery. It's been a fantastic addition to my diet. I feel more energetic and healthier since making the switch. The jaggery dissolves easily in my coffee and gives it a delightful taste. The process they follow to make the jaggery is impressive, and I love that it comes in biodegradable packaging. Great product and highly trustworthy brand!&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src='{% static "images/nisit_patel.jpg" %}' alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Nisit Patel</h3>
-                                            <span class="position d-block mb-3">Software Engineer</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-                        <div class="item">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 mx-auto">
-
-                                    <div class="testimonial-block text-center">
-                                        <blockquote class="mb-5">
-                                            <p>&ldquo;Using CaneCrush organic jaggery sugar has been a revelation. I never realized how much better my recipes could taste until I made the switch. It's perfect for sweetening everything from smoothies to desserts. The commitment to quality, health benefits, and eco-friendly packaging makes CaneCrush stand out from the rest. I'm thrilled to support a brand that prioritizes both health and the environment.&rdquo;</p>
-                                        </blockquote>
-
-                                        <div class="author-info">
-                                            <div class="author-pic">
-                                                <img src='{% static "images/prutha_vekariya.jpg" %}' alt="Maria Jones" class="img-fluid">
-                                            </div>
-                                            <h3 class="font-weight-bold">Prutha Vekariya</h3>
-                                            <span class="position d-block mb-3">Fashion Designer</span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <!-- END item -->
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Testimonial Slider -->
 
 {% endblock %}
