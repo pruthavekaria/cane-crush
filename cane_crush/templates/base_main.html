@@ -132,6 +132,46 @@
                 });
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const stars = document.querySelectorAll(".stars a");
+
+    stars.forEach((star, index) => {
+        star.addEventListener("click", function(event) {
+            event.preventDefault();
+            const value = parseInt(this.getAttribute("data-value"));
+
+            // Deselect all stars
+            stars.forEach((s, i) => {
+                s.classList.remove("active");
+            });
+
+            // Select stars up to the clicked one
+            for (let i = 0; i <= index; i++) {
+                stars[i].classList.add("active");
+            }
+
+            // Update hidden input value with selected rating
+            const ratingInput = document.getElementById("rating");
+            ratingInput.value = value;
+        });
+    });
+
+    const writeReviewLink = document.getElementById("write-review-link");
+    const reviewForm = document.getElementById("review-form");
+    const cancelReviewButton = document.getElementById("cancel-review");
+
+    writeReviewLink.addEventListener("click", function(event) {
+        event.preventDefault();
+        reviewForm.style.display = "block";
+    });
+
+    cancelReviewButton.addEventListener("click", function() {
+        reviewForm.style.display = "none";
+    });
+});
+
+
     // Event listeners for "Show more" and "Show less"
     document.querySelector('.show-more').addEventListener('click', function () {
         document.querySelector('.full-description').style.display = 'inline';
