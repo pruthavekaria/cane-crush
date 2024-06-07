@@ -22,7 +22,7 @@
     <link href='{% static "css/tiny-slider.css" %}' rel="stylesheet">
     <link href='{% static "css/styles.css" %}' rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+    <title>CaneCrush</title>
 </head>
 
 <body>
@@ -33,44 +33,10 @@
 <!-- Start Footer Section -->
 <footer class="footer-section">
     <div class="container relative">
-
-        <div class="sofa-img">
-            <img src='{% static "images/sofa.png" %}' alt="Image" class="img-fluid">
-        </div>
-
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="subscription-form">
-                    <h3 class="d-flex align-items-center"><span class="me-1"><img
-                            src='{% static "images/envelope-outline.svg" %}'
-                            alt="Image"
-                            class="img-fluid"></span><span>Subscribe to Newsletter</span>
-                    </h3>
-
-                    <form action="#" class="row g-3">
-                        <div class="col-auto">
-                            <input type="text" class="form-control" placeholder="Enter your name">
-                        </div>
-                        <div class="col-auto">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                        </div>
-                        <div class="col-auto">
-                            <button class="btn btn-primary">
-                                <span class="fa fa-paper-plane"></span>
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
         <div class="row g-5 mb-5">
             <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-                <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
-                    malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-                    Pellentesque habitant</p>
+                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo"><img src="{% static 'images/logo/CaneCrush_Logo_footer.png'%}" style="width: 200px; height: 100px;"></a></div>
+                <p class="mb-4">Join our journey in transforming sugarcane into pure, natural sweetness. Connect with us and explore the finest sugarcane products. Follow us for updates!</p>
 
                 <ul class="list-unstyled custom-social">
                     <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
@@ -84,10 +50,9 @@
                 <div class="row links-wrap">
                     <div class="col-6 col-sm-6 col-md-3">
                         <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="{% url 'about'%}">About us</a></li>
+                            <li><a href="{% url 'blog' %}">Blog</a></li>
+                            <li><a href="{% url 'contact_us'%}">Contact us</a></li>
                         </ul>
                     </div>
 
@@ -153,6 +118,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
 
 <script>
+     // JavaScript to handle the image swap
+     document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('main-image');
+            const miniImages = document.querySelectorAll('.mini-image');
+
+            miniImages.forEach(miniImage => {
+                miniImage.addEventListener('click', function() {
+                    // Swap the src attributes of the main image and the clicked mini image
+                    const tempSrc = mainImage.src;
+                    mainImage.src = this.src;
+                    this.src = tempSrc;
+                });
+            });
+        });
     // Event listeners for "Show more" and "Show less"
     document.querySelector('.show-more').addEventListener('click', function () {
         document.querySelector('.full-description').style.display = 'inline';
@@ -170,11 +149,9 @@
 
     document.querySelectorAll('.packsize').forEach(function(element) {
         element.addEventListener('click', function() {
-            // Remove 'active' class from all packsize elements
             document.querySelectorAll('.packsize').forEach(function(el) {
                 el.classList.remove('active');
             });
-            // Add 'active' class to the clicked element
             element.classList.add('active');
         });
     });

@@ -16,7 +16,7 @@ from django.contrib.auth import get_user_model
 class UserRegister(CreateView):
     template_name = "accounts/register.html"
     form_class = UserRegistration
-    success_url = "/accounts/"
+    success_url = "/accounts/login/"
 
 
 class UserLoginView(LoginView):

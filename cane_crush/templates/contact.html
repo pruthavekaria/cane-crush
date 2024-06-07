@@ -17,9 +17,8 @@
             <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
                 <li><a class="nav-link" href="{% url 'home' %}">Home</a></li>
                 <li><a class="nav-link" href="{% url 'products' %}">Shop</a></li>
-                <li><a class="nav-link" href="about.html">About us</a></li>
-                <li><a class="nav-link" href="services.html">Services</a></li>
-                <li><a class="nav-link" href="blog.html">Blog</a></li>
+                <li><a class="nav-link" href="{% url 'about'%}">About us</a></li>
+                <li><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
                 <li class="nav-item active"><a class="nav-link" href="{% url 'contact_us' %}">Contact us</a></li>
             </ul>
 
@@ -56,7 +55,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<!-- <img src="{% static 'images/couch.png'%}" class="img-fluid"> -->
+								
 							</div>
 						</div>
 					</div>
@@ -155,7 +154,7 @@
 					{% endif %}
 				</div>
 		
-				<button type="submit" class="btn btn-primary-hover-outline">Send Message</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #8F7251;">Send Message</button>
 			</form>
             </div>
 

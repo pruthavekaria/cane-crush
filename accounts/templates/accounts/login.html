@@ -4,7 +4,7 @@
 {% block content %}
 <div class="form-box">
     <h2>Login</h2>
-    <form method="post" action="{% url 'login' %}">
+    <form method="post">
         {% csrf_token %}
         <div class="form-group">
             <i class="fas fa-user "></i>
