@@ -28,9 +28,9 @@ a.more {
     font-weight: 600;
 }
 .custom-navbar {
-    background: #8F7251 !important;
-    padding-top: 20px;
-    padding-bottom: 20px;
+	 background: #8F7251 !important;
+	 padding-top: 20px;
+	 padding-bottom: 20px;
 }
 .custom-navbar .navbar-brand {
     font-size: 32px;
@@ -106,8 +106,8 @@ a.more {
     margin-right: 20px;
 }
 .hero {
-    background: #8F7251;
-    padding: calc(4rem - 30px) 0 0rem 0;
+	 background: #8F7251;
+	 padding: calc(4rem - 30px) 0 0rem 0;
 }
 @media (min-width: 768px) {
     .hero {
@@ -174,16 +174,16 @@ a.more {
         right: -100px;
     }
 }
-.hero .hero-img-wrap:after {
-    content: "";
-    position: absolute;
-    width: 255px;
-    height: 217px;
-    background-image: url('../images/dots-light.svg');
-    background-size: contain;
-    background-repeat: no-repeat;
-    right: -100px;
-    top: 0px;
+ .hero .hero-img-wrap:after {
+	 content: "";
+	 position: absolute;
+	 width: 255px;
+	 height: 217px;
+	 background-image: url('../images/dots-light.svg');
+	 background-size: contain;
+	 background-repeat: no-repeat;
+	 right: -100px;
+	 top: 0px;
 }
 @media (min-width: 1200px) {
     .hero .hero-img-wrap:after {
@@ -817,33 +817,33 @@ textarea {
     font-size: 14px;
 }
 .product_meta {
-    align-items: center;
-    margin-bottom: 10px;
+    display: flex; / Arranges elements horizontally /
+    align-items: center; / Aligns content vertically /
+    margin-bottom: 10px; / Optional spacing below /
 }
 
 .sku_wrapper {
-    display: inline-block;
-    margin: 10px;
+    display: inline-block; / Ensures elements stay on the same line /
 }
 
 .meta-label {
     font-weight: bold;
-    margin-right: 5px;
+    margin-right: 5px; / Optional spacing after label /
 }
 
 .packsize-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+    margin: 0; / Removes default margin /
+    padding: 0; / Removes default padding /
+    list-style: none; / Removes bullet points /
 }
 
 .packsize {
-    display: inline-block;
-    padding: 5px 25px;
-    margin-right: 5px;
+    display: inline-block; / Lists items horizontally /
+    padding: 5px 25px; / Adds padding for better separation /
+    margin-right: 5px; / Adds spacing between items /
     border-radius: 5px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+    border: 1px solid #ccc; / Adds a thin border /
+    cursor: pointer; / Indicates clickable element /
     color:black;
 }
 
@@ -854,7 +854,7 @@ textarea {
 .qun-wrapper addsingle-product.cart-button {
     position: relative;
     cursor: pointer;
-    transition: .2s ease-in-out;
+    / transition: .2s ease-in-out; /
     overflow: hidden;
 }
 .primary-btn {
@@ -877,7 +877,7 @@ textarea {
     width: 180px;
 }
 .qun-wrapper.addsingle-product {
-    gap: 10px;
+    gap: 10px; / Adjust spacing as needed /
 }
 .product-description {
     overflow: hidden;
@@ -910,20 +910,4 @@ textarea {
 .flex-control-thumbs li img {
     border-color: #B48B5F;
     border: 2px solid #C19A6B;
-}
-.empty-cart-image {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100vh; /* Adjust as needed */
-}
-
-.empty-cart-image .p {
-    font-size: 30px; /* Adjust the font size */
-    color: #555; /* Set the color to a shade of grey */
-    margin-top: 20px; /* Space above the text */
-    font-weight: bold; /* Make the text bold */
-    font-family: Arial, sans-serif; /* Choose a suitable font family */
 }

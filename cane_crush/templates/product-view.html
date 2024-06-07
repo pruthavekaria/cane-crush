@@ -1,26 +1,7 @@
-<!doctype html>
+{% extends 'base_main.html' %}
 {% load static %}
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="Untree.co">
-    <link rel="shortcut icon" href="favicon.png">
 
-    <meta name="description" content=""/>
-    <meta name="keywords" content="bootstrap, bootstrap4"/>
-    <!-- Bootstrap CSS -->
-    <link href='{% static "css/bootstrap.min.css" %}' rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href='{% static "css/tiny-slider.css" %}' rel="stylesheet">
-    <link href='{% static "css/styles.css" %}' rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>{{ product.name }} - CAnecrush</title>
-</head>
-
-<body>
-
+{% block content %}
 <!-- Start Header/Navigation -->
 <nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
@@ -38,9 +19,8 @@
                     <a class="nav-link" href="{% url 'home' %}">Home</a>
                 </li>
                 <li><a class="nav-link" href="{% url 'products' %}">Shop</a></li>
-                <li><a class="nav-link" href="#">About us</a></li>
-                <li><a class="nav-link" href="#">Services</a></li>
-                <li><a class="nav-link" href="#">Blog</a></li>
+                <li><a class="nav-link" href="{% url 'about'%}">About us</a></li>
+                <li><a class="nav-link" href="{% url 'blog'%}">Blog</a></li>
                 <li><a class="nav-link" href="{% url 'contact_us' %}">Contact us</a></li>
             </ul>
 
@@ -70,7 +50,13 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="item active">
-                    <img src="{{product.main_image.url}}" style="width:100%;">
+                    <img src="{{product.main_image.url}}" id="main-image"  class="main-image">
+                </div>
+                <div class="mini-images">
+                    <img src="{{product.image_1.url}}" class="mini-image" data-id="1">
+                    <img src="{{product.image_2.url}}" class="mini-image" data-id="2">
+                    <img src="{{product.image_3.url}}" class="mini-image" data-id="3">
+                    <!-- Add more mini images as needed -->
                 </div>
             </div>
             <div class="col-lg-6">
@@ -78,7 +64,7 @@
                       {% csrf_token %}
                 <div class="product-detail">
                     <h2>{{ product.name.title }}</h2>
-                    <input type="hidden" id="selected-product-name" name="selected_product_name" value="{{ product.name.title }}">
+                    <input type="hidden" id="selected-product-name" name="selected_product_name" value="{{ product.name }}">
                     <div class="subtitle light-geay"> Organic | Chemical-Free | Eco-friendly</div>
                     <div class="woocommerce-product-rating">
                         <span class="fa fa-star checked"></span>
@@ -130,169 +116,68 @@
                 </p>
             </div>
         </div>
+        <div class="row">
+            <div class="customer-reviews">
+                <h2>Customer Reviews</h2>
+                <div class="review-summary">
+                    <span class="stars">★★★★★</span>
+                    <span>Based on 1 reviews</span>
+                    <a href="#" id="write-review-link" class="write-review">Write a review</a>
+                </div>
+                <!-- Review form (initially hidden) -->
+                <div id="review-form" class="review-form">
+                    <h3>Write a Review</h3>
+                    <form class="form">
+                    <div class="row">
+                        <div class="form-group">
+                            <!-- <label for="name">Name *</label> -->
+                            <input type="text" id="name" name="name" placeholder="Name * " required>
+                        </div>
+                        <div class="form-group">
+                            <!-- <label for="email">Email *</label> -->
+                            <input type="email" id="email" name="email" placeholder="Email * " required>
+                        </div>
+                    </div>
+                <!-- <div class="form-group"> -->
+                    <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes" data-gtm-form-interact-field-id="0"> <label for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</label></p>
+                <!-- </div> -->
+                    <div class="form-group">
+                        <label>Your rating</label>
+                        <span class="stars">
+                            <a class="star-1" href="#" data-value="1">☆</a>
+                            <a class="star-2" href="#" data-value="2">☆</a>
+                            <a class="star-3" href="#" data-value="3">☆</a>
+                            <a class="star-4" href="#" data-value="4">☆</a>
+                            <a class="star-5" href="#" data-value="5">☆</a>
+                        </span>
+                        <input type="hidden" id="rating" name="rating" value="">
+                    </div>
+                        <div class="form-group">
+                            <!-- <label for="review">Your review *</label> -->   
+                            <textarea id="review" name="review" rows="5" placeholder="Your review * " required></textarea>
+                        </div>
+                        <div class="form-buttons">
+                            <button type="submit">Submit</button>
+                            <button type="button" id="cancel-review">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="review">
+                    <div class="review-header">
+                        <span class="stars">★★★★★</span>
+                        <span class="reviewer-name">Shubh Pandit</span>
+                        <span class="review-date">May 24, 2024</span>
+                    </div>
+                    <div class="review-body">
+                        I liked it and also got fast delivery, will buy again this organic bajra flour.
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
 </div>
 </div>
 <!-- End Product Detail Section -->
-
-<!-- Start Footer Section -->
-<footer class="footer-section">
-    <div class="container relative">
-
-        <div class="sofa-img">
-            <img src='{% static "images/sofa.png" %}' alt="Image" class="img-fluid">
-        </div>
-
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="subscription-form">
-                    <h3 class="d-flex align-items-center"><span class="me-1"><img
-                            src='{% static "images/envelope-outline.svg" %}'
-                            alt="Image"
-                            class="img-fluid"></span><span>Subscribe to Newsletter</span>
-                    </h3>
-
-                    <form action="#" class="row g-3">
-                        <div class="col-auto">
-                            <input type="text" class="form-control" placeholder="Enter your name">
-                        </div>
-                        <div class="col-auto">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                        </div>
-                        <div class="col-auto">
-                            <button class="btn btn-primary">
-                                <span class="fa fa-paper-plane"></span>
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-
-        <div class="row g-5 mb-5">
-            <div class="col-lg-4">
-                <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
-                <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus
-                    malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
-                    Pellentesque habitant</p>
-
-                <ul class="list-unstyled custom-social">
-                    <li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-                    <li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
-                </ul>
-            </div>
-
-            <div class="col-lg-8">
-                <div class="row links-wrap">
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="#">About us</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact us</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">Knowledge base</a></li>
-                            <li><a href="#">Live chat</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Jobs</a></li>
-                            <li><a href="#">Our team</a></li>
-                            <li><a href="#">Leadership</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-6 col-sm-6 col-md-3">
-                        <ul class="list-unstyled">
-                            <li><a href="#">Nordic Chair</a></li>
-                            <li><a href="#">Kruzo Aero</a></li>
-                            <li><a href="#">Ergonomic Chair</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="border-top copyright">
-            <div class="row pt-4">
-                <div class="col-lg-6">
-                    <p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        . All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>
-                        Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                        <!-- License information: https://untree.co/license/ -->
-                    </p>
-                </div>
-
-                <div class="col-lg-6 text-center text-lg-end">
-                    <ul class="list-unstyled d-inline-flex ms-auto">
-                        <li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</footer>
-<!-- End Footer Section -->
-
-
-<script src='{% static "js/bootstrap.bundle.min.js" %}'></script>
-<script src='{% static "js/tiny-slider.js" %}'></script>
-<script src='{% static "js/custom.js" %}'></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flexslider/2.7.2/jquery.flexslider.min.js"></script>
-
-<script>
-    // Event listeners for "Show more" and "Show less"
-    document.querySelector('.show-more').addEventListener('click', function () {
-        document.querySelector('.full-description').style.display = 'inline';
-        document.querySelector('.short-description').style.display = 'none';
-        document.querySelector('.show-more').style.display = 'none';
-        document.querySelector('.show-less').style.display = 'inline';
-    });
-
-    document.querySelector('.show-less').addEventListener('click', function () {
-        document.querySelector('.full-description').style.display = 'none';
-        document.querySelector('.short-description').style.display = 'inline';
-        document.querySelector('.show-more').style.display = 'inline';
-        document.querySelector('.show-less').style.display = 'none';
-    });
-
-    document.querySelectorAll('.packsize').forEach(function(element) {
-        element.addEventListener('click', function() {
-            // Remove 'active' class from all packsize elements
-            document.querySelectorAll('.packsize').forEach(function(el) {
-                el.classList.remove('active');
-            });
-            // Add 'active' class to the clicked element
-            element.classList.add('active');
-        });
-    });
-    function updateSelectedPackSize(packSize) {
-        document.getElementById('selected-pack-size').value = packSize;
-        console.log(packSize)
-    }
-    function updateSelectedPackSize(packSize) {
-        document.getElementById('selected-pack-size').value = packSize;
-    }
-
-</script>
-</body>
-</html>
+{% endblock %}
